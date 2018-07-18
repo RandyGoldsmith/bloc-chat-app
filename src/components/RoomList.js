@@ -1,5 +1,4 @@
 import React, { Component }from 'react';
-import { Link } from 'react-router-dom';
 
 
 class RoomList extends Component {
@@ -9,22 +8,23 @@ class RoomList extends Component {
 		this.state = {
 			rooms: []
 		};
-		this.roomsRef = this.props.firebase.database().ref('rooms');
+		
 	}
 
+	//this.roomsRef = this.props.firebase.database().ref('rooms');
 
 
-
-componentDidMount() {
-	this.roomsRef.on('child_added', snapshot => {
-		console.log(snapshot);
-	});
-}
+//componentDidMount() {
+//	this.roomsRef.on('child_added', snapshot => {
+//		console.log(snapshot);
+//	});
+//}
 
 
 	render() {
 		return (
 			<h1>Bloc Chat</h1>
+
 		)
 	}
 }
