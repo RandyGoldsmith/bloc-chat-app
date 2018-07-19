@@ -1,0 +1,27 @@
+* {
+	box-sizing: border-box;
+}
+
+html {
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	background-color: yellow;
+	
+}
+
+.left-side {
+	background-color: grey;
+	/*grid-template-columns: 2fr 6fr;*/ 
+	width: 25%;
+	padding: 25px 0;
+	height: 100vh;
+}
+
+.title {
+
+}
+
+
