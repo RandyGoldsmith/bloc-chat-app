@@ -66,7 +66,7 @@ handleClick(e) {
 					<div className="chatroom-list">
 					{
 						this.state.rooms.map( (room, index ) =>
-							<h2 key={index}>{room.name}</h2>
+							<h2 key={index}>{console.log(room.name)}</h2>
 						)
 					}
 					</div>
