@@ -12,7 +12,7 @@ class RoomList extends Component {
 			newRoomName: ''
 		};
 
-		this.handleChat = this.handleChange.bind(this);
+		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleClick = this.handleClick.bind(this);
 		
@@ -66,11 +66,11 @@ handleClick(e) {
 					<div className="chatroom-list">
 					{
 						this.state.rooms.map( (room, index ) =>
-							<h2 key={index}>{room.room}</h2>
+							<h2 key={index}>{room.name}</h2>
 						)
 					}
 					</div>
-					<div>
+					<div className="room-form">
 					<form onSubmit={this.handleSubmit}>
 						<label>
 							Name:
