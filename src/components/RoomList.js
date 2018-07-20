@@ -11,6 +11,10 @@ class RoomList extends Component {
 			rooms: [],
 			newRoomName: ''
 		};
+
+		this.handleChat = this.handleChange.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleClick = this.handleClick.bind(this);
 		
 	}
 
@@ -29,13 +33,24 @@ createRoom(newRoomName) {
 	this.roomsRef.push({
 		name: newRoomName
 	});
-	this.setState({ newRoomName: newRoomName});
+	this.setState({ newRoomName: ''});
 }
 
 
 
 handleChange(e) {
 	this.setState({newRoomName: e.target.value});
+	e.preventDefault();
+}
+
+handleSubmit(e) {
+	console.log('Form value: ' + this.state.newRoomName);
+	
+}
+
+handleClick(e) {
+	console.log('click happened');
+	
 }
 
 
@@ -54,13 +69,15 @@ handleChange(e) {
 						)
 					}
 					</div>
-					<form onSubmit={this.createRoom(this.state.newRoomName) }>
+					<div>
+					<form onSubmit={this.handleSubmit}>
 						<label>
 							Name:
-							<input type="text" value={this.state.newRoomName} onChange={this.handleChange.bind(this)} />
+							<input type="text" value={this.state.newRoomName} onChange={this.handleChange} />
 						</label>
-						<button type="submit">New Room</button>	
+						<button onClick={this.handleClick} type="submit">New Room</button>	
 					</form>
+					</div>
 				</aside>
 			</div>	
 		</div>
