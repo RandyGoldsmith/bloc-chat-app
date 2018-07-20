@@ -44,6 +44,7 @@ handleChange(e) {
 }
 
 handleSubmit(e) {
+	e.preventDefault();
 	console.log('Form value: ' + this.state.newRoomName);
 	
 }
@@ -73,7 +74,7 @@ handleClick(e) {
 					<form onSubmit={this.handleSubmit}>
 						<label>
 							Name:
-							<input type="text" value={this.state.newRoomName} onChange={this.handleChange} />
+							<input type="text" value={this.state.newRoomName} onChange={ (e) => this.handleChange(e)} />
 						</label>
 						<button onClick={this.handleClick} type="submit">New Room</button>	
 					</form>
