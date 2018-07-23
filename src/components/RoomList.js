@@ -1,24 +1,29 @@
 import React, { Component } from 'react';
+import { Button, Modal } from 'react-bootstrap';
 import './RoomList.css';
 
 
 class RoomList extends Component {
-	constructor(props) {
-		super(props);
+	constructor(props, context) {
+		super(props, context);
 
 		this.roomsRef = this.props.firebase.database().ref('rooms');
 		this.state = {
 			rooms: [],
-			newRoomName: ''
+			newRoomName: '',
+			show: false
 		};
 
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleClick = this.handleClick.bind(this);
+		this.closeModal = this.closeModal.bind(this);
 		
 	}
 
-	
+closeModal() {
+	this.setState({ show: false });
+}
 
 
 componentDidMount() {
@@ -66,19 +71,40 @@ handleClick(e) {
 					<div className="chatroom-list">
 					{
 						this.state.rooms.map( (room, index ) =>
-							<h2 key={index}>{console.log(room.name)}</h2>
+							<h2 key={index}>{room.name}</h2>
 						)
 					}
 					</div>
-					<div className="room-form">
-					<form onSubmit={this.handleSubmit}>
-						<label>
-							Name:
-							<input type="text" value={this.state.newRoomName} onChange={ (e) => this.handleChange(e)} />
-						</label>
-						<button onClick={this.handleClick} type="submit">New Room</button>	
-					</form>
-					</div>
+				
+				<div className="modal-container" style={{ height: 200 }}>
+        			<Button
+          			bsStyle="primary"
+          			bsSize="small"
+          			onClick={() => this.setState({ show: true })}
+        			>
+          				Launch contained modal
+        			</Button>
+
+        			<Modal
+          			show={this.state.show}
+          			onHide={this.closeModal}
+          			container={this}
+          			aria-labelledby="contained-modal-title"
+        			>
+          			<Modal.Header closeButton>
+            		<Modal.Title id="contained-modal-title">
+              			Create New Room
+            		</Modal.Title>
+          			</Modal.Header>
+          			<Modal.Body>
+            			Enter room name: 
+          			</Modal.Body>
+          			<Modal.Footer>
+            			<Button onClick={this.closeModal}>Cancel</Button>
+            			<Button>Create Room</Button>
+          			</Modal.Footer>
+        			</Modal>
+      			</div>
 				</aside>
 			</div>	
 		</div>
