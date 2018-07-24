@@ -99,13 +99,13 @@ handleClick(e) {
           			</Modal.Header>
           			<Modal.Body>
             			Enter room name: 
-            			<form>
+            			<form onSubmit={this.createRoom}>
             				<input type="text" value={this.state.newRoomName} onChange={this.handleChange} />
             			</form>
           			</Modal.Body>
           			<Modal.Footer>
             			<Button onClick={this.closeModal}>Cancel</Button>
-            			<Button onClick={ (e) => this.handleSubmit(e)}>Create Room</Button>
+            			<Button onClick={this.handleSubmit}>Create Room</Button>
           			</Modal.Footer>
         			</Modal>
       			</div>
