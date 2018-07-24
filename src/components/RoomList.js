@@ -49,9 +49,10 @@ handleChange(e) {
 }
 
 handleSubmit(e) {
-	this.createRoom();
-	console.log('Form value: ' + this.state.newRoomName);
 	e.preventDefault();
+	console.log('Form value: ' + this.state.newRoomName);
+	this.createRoom(this.state.newRoomName);
+	this.closeModal()
 	
 }
 
