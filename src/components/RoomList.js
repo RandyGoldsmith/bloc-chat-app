@@ -82,7 +82,7 @@ handleClick(e) {
           			bsSize="small"
           			onClick={() => this.setState({ show: true })}
         			>
-          				Launch contained modal
+          				New Room
         			</Button>
 
         			<Modal
@@ -98,10 +98,13 @@ handleClick(e) {
           			</Modal.Header>
           			<Modal.Body>
             			Enter room name: 
+            			<form>
+            				<input type="text" value={this.state.newRoomName} onChange={this.handleChange} />
+            			</form>
           			</Modal.Body>
           			<Modal.Footer>
             			<Button onClick={this.closeModal}>Cancel</Button>
-            			<Button>Create Room</Button>
+            			<Button onClick={this.handleSubmit}>Create Room</Button>
           			</Modal.Footer>
         			</Modal>
       			</div>
