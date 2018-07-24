@@ -49,8 +49,9 @@ handleChange(e) {
 }
 
 handleSubmit(e) {
-	e.preventDefault();
+	this.createRoom();
 	console.log('Form value: ' + this.state.newRoomName);
+	e.preventDefault();
 	
 }
 
@@ -104,7 +105,7 @@ handleClick(e) {
           			</Modal.Body>
           			<Modal.Footer>
             			<Button onClick={this.closeModal}>Cancel</Button>
-            			<Button onClick={this.handleSubmit}>Create Room</Button>
+            			<Button onClick={ (e) => this.handleSubmit(e)}>Create Room</Button>
           			</Modal.Footer>
         			</Modal>
       			</div>
